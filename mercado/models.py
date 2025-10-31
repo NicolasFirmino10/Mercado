@@ -30,16 +30,13 @@ class User(db.Model, UserMixin):
     usuario = db.Column(db.String(50), nullable = False, unique = True)
     email = db.Column(db.String(50), nullable = False, unique = True)
     senha = db.Column(db.String(100), nullable = False)
-    valor = db.Column(db.Integer, nullable = False, default = 5000)
+    valor = db.Column(db.Float, nullable = False, default = 5000.00)
     itens = db.relationship('Item', backref = 'dono_user', lazy = True)
 
 
     @property
     def formataValor(self):
-        if len(str(self.valor)) >= 4:
-            return f'R$ {str(self.valor)[:-3]}, {str(self.valor)[-3:]}'
-        else:
-            return f'R$ {self.valor}'
+        return f'R$ {self.valor:.2f}'
 
     @property 
     def senhacrip(self):
