@@ -30,7 +30,3 @@ login_manager.login_message = 'Por favor, realize o login.'
 login_manager.login_message_category = 'info'
 
 from mercado import routes
-from mercado import models
-
-with app.app_context():
-    db.create_all()
