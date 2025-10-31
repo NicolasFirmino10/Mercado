@@ -30,3 +30,15 @@ login_manager.login_message = 'Por favor, realize o login.'
 login_manager.login_message_category = 'info'
 
 from mercado import routes
+
+@app.route('/favicon.ico')
+def favicon():
+    return app.send_static_file('favicon.ico')
+
+# Recriar tabelas para atualizar tipos de dados
+with app.app_context():
+    try:
+        db.drop_all()
+        db.create_all()
+    except Exception:
+        pass

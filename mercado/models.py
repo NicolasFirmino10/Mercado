@@ -44,7 +44,7 @@ class User(db.Model, UserMixin):
 
     @property 
     def senhacrip(self):
-        return self.senhacrip   # Retorna a senha já criptografada
+        return self.senha   # Retorna a senha já criptografada
 
     @senhacrip.setter
     def senhacrip(self, senha_texto):
