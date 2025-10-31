@@ -29,7 +29,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     usuario = db.Column(db.String(50), nullable = False, unique = True)
     email = db.Column(db.String(50), nullable = False, unique = True)
-    senha = db.Column(db.String(50), nullable = False, unique = True)
+    senha = db.Column(db.String(100), nullable = False)
     valor = db.Column(db.Integer, nullable = False, default = 5000)
     itens = db.relationship('Item', backref = 'dono_user', lazy = True)
 
