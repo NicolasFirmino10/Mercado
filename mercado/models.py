@@ -19,6 +19,10 @@ class Item(db.Model):
         self.dono = None
         usuario.valor += self.preco
         db.session.commit()
+    
+    @property
+    def formataPreco(self):
+        return f'R$ {self.preco:.2f}'
 
 
 @login_manager.user_loader
