@@ -18,6 +18,7 @@ elif db_url and db_url.startswith("postgresql://"):
 app.config["SQLALCHEMY_DATABASE_URI"] = db_url or "sqlite:///mercado.db"
 
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "1afb86cf05c9bcf0de4be1de")
+app.config["DEBUG"] = os.environ.get("FLASK_DEBUG", "False").lower() == "true"
 
 
 
